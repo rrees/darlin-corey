@@ -1,5 +1,12 @@
 var React = require('react');
 
 React.render(
-    <h2>Hello from React</h2>, document.getElementById('app')
+    <section className="container">
+    <div id="card" className="card">
+    	<figure className="front">This is the front</figure>
+    	<figure className="back">This is the back</figure>
+    </div>
+    </section>,
+
+    document.getElementById('app')
     );
