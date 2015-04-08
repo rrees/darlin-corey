@@ -13,20 +13,12 @@ body {
 	perspective: 880px;
 }
 
-#card {
+.card {
 	width: 100%;
 	height: 100%;
 	position: absolute;
 	transform-style: preserve-3d;
 	transition: transform 2s;
-
-	figure {
-		display: block;
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		backface-visibility: hidden;
-	}
 
 	.face {
 		display: block;
