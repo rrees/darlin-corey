@@ -11,12 +11,20 @@ var CardFace = React.createClass({
 
 var FlippableCard = React.createClass({
 
+	getInitialState: function() {
+		return {flipped: false};
+	},
+
+	handleClick: function(event) {
+		this.setState({flipped: !this.state.flipped});
+	},
+
 	render: function() {
-		var cardClasses = classnames('card');
+		var cardClasses = classnames('card', {'flipped': this.state.flipped});
 
 		return (
 			    <section className="container">
-			    <div id="card" className={cardClasses}>
+			    <div id="card" className={cardClasses} onClick={this.handleClick}>
 			    	<CardFace face="front" content="This is the front" />
 			    	<CardFace face="back" content="This is the back" />
 			    </div>
