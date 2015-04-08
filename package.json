@@ -28,7 +28,8 @@
       "gulp-react": "~3",
       "auto-plug": "~1.0",
       "surge": "~0.9",
-      "react": "~0.13"
+      "react": "~0.13",
+      "classnames": "~1.2"
   },
   "keywords": [
   ]
