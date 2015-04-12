@@ -25,7 +25,7 @@ var FlippableCard = React.createClass({
 		return (
 			    <section className="container">
 			    <div id="card" className={cardClasses} onClick={this.handleClick}>
-			    	<CardFace face="front" content="This is the front" />
+			    	<CardFace face="front" content={this.props.front} />
 			    	<CardFace face="back" content="This is the back" />
 			    </div>
 			    </section>
@@ -36,7 +36,7 @@ var FlippableCard = React.createClass({
 var Question = React.createClass({
 	render: function () {
 		return (
-			<FlippableCard />
+			<FlippableCard front={this.props.question}/>
 		)
 	}
 });
@@ -44,11 +44,19 @@ var Question = React.createClass({
 var Game = React.createClass({
 
 	render: function() {
+		var questions = [
+			{question: "Question 1"},
+			{question: "Question 2"},
+			{question: "Question 3"}
+		];
+
 		return (
 			<article>
-			<Question />
-			<Question />
-			<Question />
+			{
+				questions.map(function(question, idx) {
+					return <Question question={question.question} />
+				})
+				}
 			</article>
 		)
 	}
