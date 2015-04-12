@@ -33,6 +33,19 @@ var FlippableCard = React.createClass({
 	}
 	});
 
+var Game = React.createClass({
+
+	render: function() {
+		return (
+			<article>
+			<FlippableCard />
+			<FlippableCard />
+			<FlippableCard />
+			</article>
+		)
+	}
+});
+
 React.render(
-	<FlippableCard />, document.getElementById('app')
+	<Game />, document.getElementById('app')
     );
