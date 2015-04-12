@@ -45,18 +45,27 @@ var Game = React.createClass({
 
 	render: function() {
 		var questions = [
-			{question: "Question 1"},
-			{question: "Question 2"},
-			{question: "Question 3"}
+			{
+				question: "Question 1",
+				order: 1
+			},
+			{
+				question: "Question 2",
+				order: 2
+			},
+			{
+				question: "Question 3",
+				order: 3
+			}
 		];
 
 		return (
 			<article>
 			{
 				questions.map(function(question, idx) {
-					return <Question question={question.question} />
+					return <Question key={question.order} question={question.question} />
 				})
-				}
+			}
 			</article>
 		)
 	}
