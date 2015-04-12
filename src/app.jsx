@@ -33,14 +33,22 @@ var FlippableCard = React.createClass({
 	}
 	});
 
+var Question = React.createClass({
+	render: function () {
+		return (
+			<FlippableCard />
+		)
+	}
+});
+
 var Game = React.createClass({
 
 	render: function() {
 		return (
 			<article>
-			<FlippableCard />
-			<FlippableCard />
-			<FlippableCard />
+			<Question />
+			<Question />
+			<Question />
 			</article>
 		)
 	}
