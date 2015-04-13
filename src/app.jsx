@@ -1,5 +1,6 @@
 var React = require('react');
 var classnames = require('classnames');
+var seedrandom = require('seedrandom');
 
 var CardFace = React.createClass({
 	render: function() {
@@ -44,6 +45,12 @@ var Question = React.createClass({
 var Game = React.createClass({
 
 	render: function() {
+		var seed = window.location.hash || 'Darling Corey';
+		console.log(seed);
+
+		var rng = seedrandom(seed);
+		console.log(rng());
+
 		var questions = [
 			{
 				question: "Question 1",
