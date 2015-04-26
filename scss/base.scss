@@ -1,9 +1,9 @@
 
 body {
-    width: auto;
-    margin-left: 10%;
-    marign-right: 10%;
-    font-family: sans-serif;
+	width: auto;
+	margin-left: 10%;
+	marign-right: 10%;
+	font-family: sans-serif;
 }
 
 .container {
@@ -19,7 +19,7 @@ body {
 	position: absolute;
 	transform-style: preserve-3d;
 	transition: transform 2s;
-    border: solid 1px #333;
+	border: solid 1px #333;
 
 	.face {
 		display: block;
@@ -32,7 +32,7 @@ body {
 	.front, .back {
 		margin: 0;
 		padding: 0;
-        background-color: darkgrey;
+		background-color: darkgrey;
 		color: white;
 	}
 
@@ -49,6 +49,18 @@ body {
 }
 
 .card__text {
-    font-size: 5rem;
-    padding: 1rem;
+	font-size: 5rem;
+	padding: 1rem;
+}
+
+.q1 {
+	color: #233ac6;
+}
+
+.q2 {
+	color: #c6233a;
+}
+
+.q3 {
+	color: #3ac623;
 }
