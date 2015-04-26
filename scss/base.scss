@@ -32,7 +32,6 @@ body {
 	.front, .back {
 		margin: 0;
 		padding: 0;
-		background-color: darkgrey;
 		color: white;
 	}
 
@@ -53,14 +52,14 @@ body {
 	padding: 1rem;
 }
 
-.q1 {
-	color: #233ac6;
+.q1 .face {
+	background-color: #233ac6;
 }
 
-.q2 {
-	color: #c6233a;
+.q2 .face {
+	background-color: #c6233a;
 }
 
-.q3 {
-	color: #3ac623;
+.q3 .face{
+	background-color: #3ac623;
 }
