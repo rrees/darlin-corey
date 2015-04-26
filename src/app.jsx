@@ -6,7 +6,7 @@ var CardFace = React.createClass({
 	render: function() {
 		var classNames = classnames('face', this.props.face);
 
-		return (<figure className={classNames}>{this.props.content}</figure>);
+		return (<figure className={classNames}><div className="card__text">{this.props.content}</div></figure>);
 	}
 });
 
@@ -53,17 +53,17 @@ var Game = React.createClass({
 
 		var questions = [
 			{
-				question: "Question 1",
+				question: "Does Cora Smaw love you?",
 				order: 1,
 				answer: "Answer 1"
 			},
 			{
-				question: "Question 2",
+				question: "Who shot Cora?",
 				order: 2,
 				answer: "Answer 2"
 			},
 			{
-				question: "Question 3",
+				question: "Will you kill Belt or will he kill you?",
 				order: 3,
 				answer: "Answer 3"
 			}
