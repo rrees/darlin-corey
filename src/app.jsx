@@ -49,14 +49,14 @@ var Game = React.createClass({
 		console.log(seed);
 
 		var rng = seedrandom(seed);
-		console.log(rng());
+		//console.log(rng());
 
 		var questions = [
 			{
 				id: 'q1',
 				question: "Does Cora Smaw love you?",
 				order: 1,
-				answer: "Answer 1"
+				answer: rng() > 0.5 ? "She loves you" : "She loves you not"
 			},
 			{
 				id: 'q2',
