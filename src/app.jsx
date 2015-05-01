@@ -62,13 +62,13 @@ var Game = React.createClass({
 				id: 'q2',
 				question: "Who shot Cora?",
 				order: 2,
-				answer: "Answer 2"
+				answer: rng() > 0.5 ? "Erwin Belt shot Cora" : "You shot Cora"
 			},
 			{
 				id: 'q3',
 				question: "Will you kill Belt or will he kill you?",
 				order: 3,
-				answer: "Answer 3"
+				answer: rng() > 0.5 ? "You are going to kill Belt" : "Belt is going to kill you"
 			}
 		];
 
