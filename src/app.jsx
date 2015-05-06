@@ -42,40 +42,56 @@ var Question = React.createClass({
 	}
 });
 
-function createGame(seed) {
-	console.log(seed);
-
-	var rng = seedrandom(seed);
-
-	return {
-		questions: [
-			{
-				id: 'q1',
-				question: "Does Cora Smaw love you?",
-				order: 1,
-				answer: rng() > 0.5 ? "She loves you" : "She loves you not"
-			},
-			{
-				id: 'q2',
-				question: "Who shot Cora?",
-				order: 2,
-				answer: rng() > 0.5 ? "Erwin Belt shot Cora" : "You shot Cora"
-			},
-			{
-				id: 'q3',
-				question: "Will you kill Belt or will he kill you?",
-				order: 3,
-				answer: rng() > 0.5 ? "You are going to kill Belt" : "Belt is going to kill you"
-			}
-		]
-	};
-}
-
 var Game = React.createClass({
 
+	determineSeed: function() {
+		return window.location.hash || 'Darling Corey';
+	},
+
+	onHashChange: function(event) {
+		console.log('Hello from the hash change event');
+		this.setState(this.createGame(this.determineSeed()));
+	},
+
+	createGame: function(seed) {
+		console.log(seed);
+
+		var rng = seedrandom(seed);
+
+		return {
+			questions: [
+				{
+					id: 'q1',
+					question: "Does Cora Smaw love you?",
+					order: 1,
+					answer: rng() > 0.5 ? "She loves you" : "She loves you not"
+				},
+				{
+					id: 'q2',
+					question: "Who shot Cora?",
+					order: 2,
+					answer: rng() > 0.5 ? "Erwin Belt shot Cora" : "You shot Cora"
+				},
+				{
+					id: 'q3',
+					question: "Will you kill Belt or will he kill you?",
+					order: 3,
+					answer: rng() > 0.5 ? "You are going to kill Belt" : "Belt is going to kill you"
+				}
+			]
+		};
+	},
+
 	getInitialState: function() {
-		var seed = window.location.hash || 'Darling Corey';
-		return createGame(seed);
+		return this.createGame(this.determineSeed());
+	},
+
+	componentDidMount: function() {
+		window.addEventListener("hashchange", this.onHashChange, false);
+	},
+
+	componentWillUnmount: function() {
+		window.removeEventListener("hashchange", this.onHashChange);
 	},
 
 	render: function() {
@@ -95,9 +111,3 @@ var Game = React.createClass({
 React.render(
 	<Game />, document.getElementById('app')
     );
-
-function hashChange(event) {
-	console.log('Hash change handler');
-}
-
-window.addEventListener("hashchange", hashChange, false);
