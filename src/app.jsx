@@ -42,16 +42,13 @@ var Question = React.createClass({
 	}
 });
 
-var Game = React.createClass({
+function createGame(seed) {
+	console.log(seed);
 
-	render: function() {
-		var seed = window.location.hash || 'Darling Corey';
-		console.log(seed);
+	var rng = seedrandom(seed);
 
-		var rng = seedrandom(seed);
-		//console.log(rng());
-
-		var questions = [
+	return {
+		questions: [
 			{
 				id: 'q1',
 				question: "Does Cora Smaw love you?",
@@ -70,12 +67,23 @@ var Game = React.createClass({
 				order: 3,
 				answer: rng() > 0.5 ? "You are going to kill Belt" : "Belt is going to kill you"
 			}
-		];
+		]
+	};
+}
+
+var Game = React.createClass({
+
+	getInitialState: function() {
+		var seed = window.location.hash || 'Darling Corey';
+		return createGame(seed);
+	},
+
+	render: function() {
 
 		return (
 			<article>
 			{
-				questions.map(function(question, idx) {
+				this.state.questions.map(function(question, idx) {
 					return <Question key={question.order} questionId={question.id} question={question.question} answer={question.answer}/>
 				})
 			}
@@ -87,3 +95,9 @@ var Game = React.createClass({
 React.render(
 	<Game />, document.getElementById('app')
     );
+
+function hashChange(event) {
+	console.log('Hash change handler');
+}
+
+window.addEventListener("hashchange", hashChange, false);
