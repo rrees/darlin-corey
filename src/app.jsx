@@ -20,6 +20,18 @@ var FlippableCard = React.createClass({
 		this.setState({flipped: !this.state.flipped});
 	},
 
+	onHashChange: function(event) {
+		this.setState({flipped: false});
+	},
+
+	componentDidMount: function() {
+		window.addEventListener("hashchange", this.onHashChange, false);
+	},
+
+	componentWillUnmount: function() {
+		window.removeEventListener("hashchange", this.onHashChange);
+	},
+
 	render: function() {
 		var cardClasses = classnames('card', this.props.questionId, {'flipped': this.state.flipped});
 
